@@ -44,3 +44,4 @@ api-livros/
 O projeto tem como objetivo colocar em prática conceitos de desenvolvimento de APIs REST, integração com banco de dados relacionais, organização de projetos Python, gerenciamento de dependências e utilização do FastAPI.
 
 A arquitetura separa a responsabilidade da API, da camada de acesso aos dados e do banco de dados, proporcionando uma base para evolução e implementação de novas funcionalidades.
+
