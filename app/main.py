@@ -17,7 +17,10 @@ app = FastAPI(
 
 
 @app.post("/livros", response_model=LivroResposta, status_code=201, tags=["Livros"])
-def criar_livro(dados_livro: LivroCriacao, sessao_banco: Session = Depends(obter_sessao_banco)):
+def criar_livro(
+    dados_livro: LivroCriacao,
+    sessao_banco: Session = Depends(obter_sessao_banco),
+):
     novo_livro = Livro(
         titulo=dados_livro.titulo,
         autor=dados_livro.autor,
@@ -31,14 +34,20 @@ def criar_livro(dados_livro: LivroCriacao, sessao_banco: Session = Depends(obter
 
     return novo_livro
 
-    
-    @app.get("/livros/{id_livro}", response_model=LivroResposta, tags=["Livros"])
-    def obter_livro(id_livro: int, sessao_banco: Session = Depends(obter_sessao_banco)):
+
+@app.get("/livros/{id_livro}", response_model=LivroResposta, tags=["Livros"])
+def obter_livro(
+    id_livro: int,
+    sessao_banco: Session = Depends(obter_sessao_banco),
+):
     consulta = select(Livro).where(Livro.id == id_livro)
     resultado = sessao_banco.execute(consulta)
     livro = resultado.scalar_one_or_none()
 
     if livro is None:
-        raise HTTPException(status_code=404, detail="Livro não encontrado")
+        raise HTTPException(
+            status_code=404,
+            detail="Livro não encontrado",
+        )
 
     return livro
