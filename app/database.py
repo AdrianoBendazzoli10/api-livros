@@ -4,6 +4,7 @@ from sqlalchemy.orm import DeclarativeBase, sessionmaker
 
 
 class Configuracoes(BaseSettings):
+    
     db_user: str
     db_password: str
     db_host: str = "localhost"
