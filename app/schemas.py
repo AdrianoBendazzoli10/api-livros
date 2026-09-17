@@ -17,4 +17,3 @@ class LivroResposta(BaseModel):
 
     class Config:
         from_attributes = True
-        
