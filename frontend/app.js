@@ -185,7 +185,7 @@ async function excluirLivro(idLivro, titulo) {
     }
 
 
-    
+
     if (entradaIdLivro.value === String(idLivro)) {
       limparFormulario();
     }
@@ -200,5 +200,6 @@ async function excluirLivro(idLivro, titulo) {
 formularioLivro.addEventListener("submit", salvarLivro);
 botaoCancelar.addEventListener("click", limparFormulario);
 botaoAtualizar.addEventListener("click", carregarLivros);
+
 
 carregarLivros();
