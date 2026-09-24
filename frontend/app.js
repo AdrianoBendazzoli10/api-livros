@@ -184,6 +184,8 @@ async function excluirLivro(idLivro, titulo) {
       throw new Error(await lerErro(resposta));
     }
 
+
+    
     if (entradaIdLivro.value === String(idLivro)) {
       limparFormulario();
     }
